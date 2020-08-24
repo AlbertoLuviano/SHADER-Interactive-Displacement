@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Displacement/HexSimplePosBaseColor.png" type="Texture" id=1]
+[ext_resource path="res://Displacement/VDisplacementSimplePos.shader" type="Shader" id=2]
+
+[resource]
+shader = ExtResource( 2 )
+shader_param/uCenter = Vector2( 1.51, 0 )
+shader_param/uRadius = 3.0
+shader_param/uOffsetFactor = 5.0
+shader_param/textureColor = ExtResource( 1 )

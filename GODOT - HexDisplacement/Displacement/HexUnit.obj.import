@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/HexUnit.obj-3cc91a44ac0813a0231e3bb69eaa067d.mesh"
+
+[deps]
+
+files=[ "res://.import/HexUnit.obj-3cc91a44ac0813a0231e3bb69eaa067d.mesh" ]
+
+source_file="res://Displacement/HexUnit.obj"
+dest_files=[ "res://.import/HexUnit.obj-3cc91a44ac0813a0231e3bb69eaa067d.mesh", "res://.import/HexUnit.obj-3cc91a44ac0813a0231e3bb69eaa067d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

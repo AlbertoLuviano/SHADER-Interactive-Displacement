@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/HexArray56-50Textured.obj-81378e21f6ce581eab0bd141cf898892.mesh"
+
+[deps]
+
+files=[ "res://.import/HexArray56-50Textured.obj-81378e21f6ce581eab0bd141cf898892.mesh" ]
+
+source_file="res://Displacement/HexArray56-50Textured.obj"
+dest_files=[ "res://.import/HexArray56-50Textured.obj-81378e21f6ce581eab0bd141cf898892.mesh", "res://.import/HexArray56-50Textured.obj-81378e21f6ce581eab0bd141cf898892.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
