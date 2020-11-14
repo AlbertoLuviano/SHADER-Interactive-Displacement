@@ -7,7 +7,6 @@
 shader = ExtResource( 2 )
 shader_param/uFirstCenter = Vector2( 0.28, 0.25 )
 shader_param/uCentersOffset = Vector2( 0.43, 0.25 )
-shader_param/uGridSize = Vector2( 16, 10 )
 shader_param/uPosCenter = Vector2( 0, 0 )
 shader_param/uRadius = 3.0
 shader_param/uOffsetFactor = 5.0
