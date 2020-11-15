@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Displacement/JakDisplacement.shader" type="Shader" id=1]
+[ext_resource path="res://Displacement/HexPosBaseColor.png" type="Texture" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/uFirstCenter = Vector2( 0.28, 0.25 )
+shader_param/uCentersOffset = Vector2( 0.43, 0.25 )
+shader_param/uPosCenter = Vector2( 0, 0 )
+shader_param/uRadius = 3.0
+shader_param/uOffsetFactor = 5.0
+shader_param/hexTexture = ExtResource( 2 )

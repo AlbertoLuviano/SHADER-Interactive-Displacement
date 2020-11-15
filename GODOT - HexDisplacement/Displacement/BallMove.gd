@@ -4,11 +4,15 @@ export var torque : float = 100.0
 export var simpleShaderP : NodePath
 export var UVShaderP : NodePath
 export var PosShaderP : NodePath
+export var JakVariantP : NodePath
+export var PosV2ShaderP : NodePath
 export var infoPath : NodePath
 
 var simpleShaderNode
 var uVShaderNode
 var posShaderNode
+var jakVariantNode
+var posV2ShaderNode
 var hexUnits
 var infoNode
 
@@ -17,6 +21,8 @@ func _ready():
 	simpleShaderNode = get_node(simpleShaderP)
 	uVShaderNode = get_node(UVShaderP)
 	posShaderNode = get_node(PosShaderP)
+	jakVariantNode = get_node(JakVariantP)
+	posV2ShaderNode = get_node(PosV2ShaderP)
 	infoNode	 = get_node(infoPath)
 
 func _integrate_forces(_state):
@@ -35,6 +41,10 @@ func updateCenter(newCenter : Vector2):
 		newCenter - Vector2(simpleShaderNode.translation.x, simpleShaderNode.translation.z))
 	posShaderNode.get_surface_material(0).set_shader_param("uPosCenter", \
 		Vector2(newCenter.x, -newCenter.y) - Vector2(posShaderNode.translation.x, posShaderNode.translation.z))
+	posV2ShaderNode.get_surface_material(0).set_shader_param("uPosCenter", \
+		Vector2(newCenter.x, -newCenter.y) - Vector2(posV2ShaderNode.translation.x, posV2ShaderNode.translation.z))
+	jakVariantNode.get_surface_material(0).set_shader_param("uPosCenter", \
+		Vector2(newCenter.x, -newCenter.y) - Vector2(jakVariantNode.translation.x, -jakVariantNode.translation.z))
 	
 	var UVCoords : Vector2 = Vector2(0,0)
 	UVCoords.x = (newCenter.x - uVShaderNode.translation.x) / 6.95
