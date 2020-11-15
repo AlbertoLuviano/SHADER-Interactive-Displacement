@@ -9,6 +9,18 @@ uniform float uOffsetFactor;
 
 uniform sampler2D hexTexture;
 
+float when_gt(float x, float y) {
+  return max(sign(x - y), 0.0);
+}
+
+float when_lt(float x, float y) {
+  return max(sign(y - x), 0.0);
+}
+
+float when_eq(float x, float y) {
+  return 1.0 - abs(sign(x - y));
+}
+
 void vertex(){
 	float closestColumn = round(( VERTEX.x - uFirstCenter.x) / uCentersOffset.x);
 	float closestRow = round((-VERTEX.z - uFirstCenter.y) / uCentersOffset.y);
@@ -18,16 +30,11 @@ void vertex(){
 		uFirstCenter.y + (closestRow    * uCentersOffset.y)
 	);
 	
-	if (-VERTEX.z > closestGridCenter.y) {
-		closestRow    += 1.0;
-	} else if (-VERTEX.z < closestGridCenter.y) {
-		closestRow    -= 1.0;
-	} else if ( VERTEX.x < closestGridCenter.x) {
-		closestColumn -= 1.0;
-	} else if ( VERTEX.x > closestGridCenter.x) {
-		closestColumn += 1.0;
-	}
-	
+	closestRow    += 1.0 * when_gt(-VERTEX.z, closestGridCenter.y);
+	closestRow    -= 1.0 * when_lt(-VERTEX.z, closestGridCenter.y);
+	closestColumn += 1.0 * when_gt( VERTEX.x, closestGridCenter.x) * when_eq(-VERTEX.z, closestGridCenter.y);
+	closestColumn -= 1.0 * when_lt( VERTEX.x, closestGridCenter.x) * when_eq(-VERTEX.z, closestGridCenter.y);
+		
 	vec2 centerToUseVec2 = vec2(
 		uFirstCenter.x + (closestColumn * uCentersOffset.x),
 		uFirstCenter.y + (closestRow    * uCentersOffset.y)
